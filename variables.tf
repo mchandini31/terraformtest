@@ -1,24 +1,24 @@
 variable "ami" {
-    type = string
-  }
-  variable "instance_type" {
-    type = string
-  }
-  variable "tags" {
-    type = string
-  }
-  variable "subnet_id" {
-    type = string
-  }
-  variable "vpc_security_group_ids" {
-    type = list(string)
-  }
-  variable "key_name" {
-    type = string
-  }
- 
+  type = string
+}
+variable "instance_type" {
+  type = string
+}
+variable "tags" {
+  type = string
+}
+variable "subnet_id" {
+  type = string
+}
+variable "vpc_security_group_ids" {
+  type = list(string)
+}
+variable "key_name" {
+  type = string
+}
 
- variable "env" {
+
+variable "env" {
   description = "The environment (dev,test)"
   type        = string
   default     = "dev" # Optional: provides a default value
