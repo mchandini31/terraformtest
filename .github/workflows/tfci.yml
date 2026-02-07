@@ -12,7 +12,7 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  input:
+  inputs:
     environment:
        required: true
        type: choice
@@ -46,9 +46,9 @@ on:
 
 jobs:
   test-aws-oidc:
-    name: deploy ${{ input.environment}} || 'dev' }}
+    name: deploy ${{ inputs.environment}} || 'dev' }}
     runs-on: ubuntu-latest
-    environment : ${{ input.environment}} || 'dev' }}
+    environment : ${{ inputs.environment}} || 'dev' }}
     permissions:
       contents: read
       id-token: write # This is crucial for requesting the OIDC ID token
