@@ -12,6 +12,15 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  input:
+    environment:
+       required: true
+       type: choice
+       options:
+         - dev
+         - staging
+
+
 
 # # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 # jobs:
@@ -37,7 +46,9 @@ on:
 
 jobs:
   test-aws-oidc:
+    name: deploy ${{ input.environment}} || 'dev' }}
     runs-on: ubuntu-latest
+    environment : ${{ input.environment}} || 'dev' }}
     permissions:
       contents: read
       id-token: write # This is crucial for requesting the OIDC ID token
@@ -48,9 +59,9 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::043309337957:role/github-oidc # Replace with your Role ARN
+          role-to-assume: arn:aws:iam::${{ secret.ACCOUNT_ID }}:role/${{ secret.ROLE_ARN_DEV}} # Replace with your Role ARN
           aws-region: us-east-1 # Replace with your desired AWS region
-          role-session-name: github-oidc
+
 
       - name: Run AWS CLI command to verify access
         run: aws s3 ls # This command will list S3 buckets if authentication works
