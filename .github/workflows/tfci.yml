@@ -59,7 +59,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/${{ secrets.ROLE_ARN_DEV }} # Replace with your Role ARN
+          role-to-assume: arn:aws:iam::627528668941:role/github-oidc-dev # Replace with your Role ARN
           aws-region: us-east-1 # Replace with your desired AWS region
 
 
