@@ -14,7 +14,7 @@ permissions:
   #########
   ### PR ---> Main -- Validate + plan 
 
-  jobs:
+jobs:
    pr-plan:
      if: github.event_name == 'pull_request'
      name: executing the PR
