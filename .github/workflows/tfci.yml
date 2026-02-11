@@ -5,8 +5,7 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
+  
   pull_request:
     branches: [ "main" ]
 
@@ -55,6 +54,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: set up terraform
+        uses:
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
