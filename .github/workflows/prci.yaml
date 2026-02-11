@@ -10,7 +10,6 @@ on:
 permissions:
   id-token : write
   contents : read
-  pull_requests : read
 
   #########
   ### PR ---> Main -- Validate + plan 
